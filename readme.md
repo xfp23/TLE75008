@@ -25,9 +25,10 @@ This library is a universal C driver for the Infineon TLE75008 8-channel high-si
 
 ```c
 // Example: Simple Initialization
-TLE75008_Handle_t myDevice;
+TLE75008_Handle_t myDevice = NULL;
 TLE75008_Conf_t config = {
-    .spi_tx_rx = my_platform_spi_transfer,
+    .spi_tx = my_platform_spi_tx,
+    .spi_rx = my_platform_spi_rx,
     .Idle_func = my_idle_pin_ctrl,
     .Cs_func = my_cs_pin_ctrl
 };
@@ -87,6 +88,11 @@ if (TLE75008_Init(&myDevice, &config) == TLE75008_OK) {
 `TLE75008_Status_t TLE75008_SoftWareReset(TLE75008_Handle_t handle);`
 - **handle**: Device handle. Performs a software reset on the device.
 
+### TLE75008_ActiveChip
+`TLE75008_Status_t TLE75008_ActiveChip(TLE75008_Handle_t handle,TLE75008_ChipActive_t active);`
+- **handle**: Device handle.
+- **active**: Enable/Disable Chip.
+
 ---
 
 ## Structure Descriptions
@@ -145,3 +151,7 @@ Parallel protection configuration mask.
 ### TLE75008_Input_t (Hardware Input Ports)
 - `TLE75008_INPUT_0`: Refers to physical pin IN0.
 - `TLE75008_INPUT_1`: Refers to physical pin IN1.
+
+### TLE75008_ChipActive_t (Device Select Active)
+- `TLE75008_DIS`: Disable
+- `TLE75008_EN` : Enable

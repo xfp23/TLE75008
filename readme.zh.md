@@ -25,9 +25,10 @@
 
 ```c
 // 示例：简单初始化
-TLE75008_Handle_t myDevice;
+TLE75008_Handle_t myDevice = NULL;
 TLE75008_Conf_t config = {
-    .spi_tx_rx = my_platform_spi_transfer,
+    .spi_tx = my_platform_spi_tx,
+    .spi_rx = my_platform_spi_rx,
     .Idle_func = my_idle_pin_ctrl,
     .Cs_func = my_cs_pin_ctrl
 };
@@ -87,6 +88,11 @@ if (TLE75008_Init(&myDevice, &config) == TLE75008_OK) {
 `TLE75008_Status_t TLE75008_SoftWareReset(TLE75008_Handle_t handle);`
 - **handle**: 设备句柄。执行软件复位。
 
+### TLE75008_ActiveChip
+`TLE75008_Status_t TLE75008_ActiveChip(TLE75008_Handle_t handle,TLE75008_ChipActive_t active);`
+- **handle**: 设备句柄。
+- **active**: 激活/禁用芯片
+
 ---
 
 ## 结构体说明
@@ -145,3 +151,7 @@ if (TLE75008_Init(&myDevice, &config) == TLE75008_OK) {
 ### TLE75008_Input_t (硬件输入口)
 - `TLE75008_INPUT_0`: 指向物理 IN0。
 - `TLE75008_INPUT_1`: 指向物理 IN1。
+
+### TLE75008_ChipActive_t (设备激活选项)
+- `TLE75008_DIS`: 禁用
+- `TLE75008_EN` : 激活

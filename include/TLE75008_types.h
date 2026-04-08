@@ -81,7 +81,7 @@ typedef enum
 
 typedef void (*TLE75008_GPIO_Func_t)(uint8_t param);
 
-typedef int (*TLE75008_SpiTxRx_Func_t)(uint8_t *txbuf, uint8_t *rxbuf, size_t tx_len, size_t rx_len);
+// typedef int (*TLE75008_SpiTxRx_Func_t)(uint8_t *txbuf, uint8_t *rxbuf, size_t tx_len, size_t rx_len);
 
 typedef int (*TLE75008_Spi_Func_t)(uint8_t *data, size_t len);
 
@@ -134,7 +134,7 @@ typedef struct /* __attribute__((packed)) */
     TLE75008_GPIO_Func_t In1_func; // in1 gpio操作，如果选择了pwm模式，请在此函数填写占空比的更新函数
     TLE75008_Spi_Func_t spi_tx;
     TLE75008_Spi_Func_t spi_rx;
-    TLE75008_SpiTxRx_Func_t spi_tx_rx;
+    // TLE75008_SpiTxRx_Func_t spi_tx_rx;
     // TLE75008_DriverMode_t driver_mode; // 驱动模式，选择pwm还是spi
 } TLE75008_Conf_t;
 
