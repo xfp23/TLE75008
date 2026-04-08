@@ -30,14 +30,14 @@ extern "C" {
  * @param conf   Hardware configuration
  * @return Status code
  */
-TLE75008_Status_t TLE75008_Init(TLE75008_Handle_t *handle, TLE75008_Conf_t *conf);
+extern TLE75008_Status_t TLE75008_Init(TLE75008_Handle_t *handle, TLE75008_Conf_t *conf);
 
 /**
  * @brief Deinitialize device
  *
  * @param handle Device handle
  */
-void TLE75008_DeInit(TLE75008_Handle_t *handle);
+extern void TLE75008_DeInit(TLE75008_Handle_t *handle);
 
 /**
  * @brief Set single channel output state
@@ -47,7 +47,7 @@ void TLE75008_DeInit(TLE75008_Handle_t *handle);
  * @param value   ON / OFF
  * @return Status code
  */
-TLE75008_Status_t TLE75008_OutputChx(TLE75008_Handle_t handle,TLE75008_Channel_t channel,TLE75008_Output_t value);
+extern TLE75008_Status_t TLE75008_OutputChx(TLE75008_Handle_t handle,TLE75008_Channel_t channel,TLE75008_Output_t value);
 
 /**
  * @brief Set multiple channel outputs using mask
@@ -56,7 +56,7 @@ TLE75008_Status_t TLE75008_OutputChx(TLE75008_Handle_t handle,TLE75008_Channel_t
  * @param mask   Channel mask
  * @return Status code
  */
-TLE75008_Status_t TLE75008_OutputChBatch(TLE75008_Handle_t handle,TLE75008_ChMask_t mask);
+extern TLE75008_Status_t TLE75008_OutputChBatch(TLE75008_Handle_t handle,TLE75008_ChMask_t mask);
 
 /**
  * @brief Map input pin (INx) to output channels
@@ -66,7 +66,7 @@ TLE75008_Status_t TLE75008_OutputChBatch(TLE75008_Handle_t handle,TLE75008_ChMas
  * @param mask   Channel mask (1 = connected)
  * @return Status code
  */
-TLE75008_Status_t TLE75008_SetMapInx(TLE75008_Handle_t handle,TLE75008_Input_t input,TLE75008_ChMask_t mask);
+extern TLE75008_Status_t TLE75008_SetMapInx(TLE75008_Handle_t handle,TLE75008_Input_t input,TLE75008_ChMask_t mask);
 
 /**
  * @brief Get instant device status
@@ -79,7 +79,7 @@ TLE75008_Status_t TLE75008_SetMapInx(TLE75008_Handle_t handle,TLE75008_Input_t i
  * @param value  Output status struct
  * @return Status code
  */
-TLE75008_Status_t TLE75008_GetInstStatus(TLE75008_Handle_t handle,TLE75008_Inst_t *value);
+extern TLE75008_Status_t TLE75008_GetInstStatus(TLE75008_Handle_t handle,TLE75008_Inst_t *value);
 
 /**
  * @brief Enable fault diagnosis for channels
@@ -90,7 +90,7 @@ TLE75008_Status_t TLE75008_GetInstStatus(TLE75008_Handle_t handle,TLE75008_Inst_
  * @param mask   Channel mask
  * @return Status code
  */
-TLE75008_Status_t TLE75008_EnChxFaultDiag(TLE75008_Handle_t handle,TLE75008_ChMask_t mask);
+extern TLE75008_Status_t TLE75008_EnChxFaultDiag(TLE75008_Handle_t handle,TLE75008_ChMask_t mask);
 
 /**
  * @brief Read fault detection result
@@ -99,7 +99,7 @@ TLE75008_Status_t TLE75008_EnChxFaultDiag(TLE75008_Handle_t handle,TLE75008_ChMa
  * @param mask   Output fault mask
  * @return Status code
  */
-TLE75008_Status_t TLE75008_ChxFaultDete(TLE75008_Handle_t handle,TLE75008_ChMask_t *mask);
+extern TLE75008_Status_t TLE75008_ChxFaultDete(TLE75008_Handle_t handle,TLE75008_ChMask_t *mask);
 
 /**
  * @brief Perform software reset
@@ -107,7 +107,7 @@ TLE75008_Status_t TLE75008_ChxFaultDete(TLE75008_Handle_t handle,TLE75008_ChMask
  * @param handle Device handle
  * @return Status code
  */
-TLE75008_Status_t TLE75008_SoftWareReset(TLE75008_Handle_t handle);
+extern TLE75008_Status_t TLE75008_SoftWareReset(TLE75008_Handle_t handle);
 
 /**
  * @brief Configure parallel protection
@@ -116,7 +116,7 @@ TLE75008_Status_t TLE75008_SoftWareReset(TLE75008_Handle_t handle);
  * @param mask   Parallel protection configuration
  * @return Status code
  */
-TLE75008_Status_t TLE75008_SetParallProtect(TLE75008_Handle_t handle,TLE75008_Parallel_t mask);
+extern TLE75008_Status_t TLE75008_SetParallProtect(TLE75008_Handle_t handle,TLE75008_Parallel_t mask);
 
 /**
  * @brief Clear fault flags of selected channels
@@ -125,7 +125,7 @@ TLE75008_Status_t TLE75008_SetParallProtect(TLE75008_Handle_t handle,TLE75008_Pa
  * @param mask   Channel mask
  * @return Status code
  */
-TLE75008_Status_t TLE75008_ClearFaultChx(TLE75008_Handle_t handle,TLE75008_ChMask_t mask);
+extern TLE75008_Status_t TLE75008_ClearFaultChx(TLE75008_Handle_t handle,TLE75008_ChMask_t mask);
 
 /**
  * @brief Force device into Limp Home mode
@@ -137,7 +137,7 @@ TLE75008_Status_t TLE75008_ClearFaultChx(TLE75008_Handle_t handle,TLE75008_ChMas
  * @param handle Device handle
  * @return Status code
  */
-TLE75008_Status_t TLE75008_EnterLimpHome(TLE75008_Handle_t handle);
+extern TLE75008_Status_t TLE75008_EnterLimpHome(TLE75008_Handle_t handle);
 
 /**
  * @brief Enter Idle mode (low power)
@@ -145,7 +145,7 @@ TLE75008_Status_t TLE75008_EnterLimpHome(TLE75008_Handle_t handle);
  * @param handle Device handle
  * @return Status code
  */
-TLE75008_Status_t TLE75008_EnterIdle(TLE75008_Handle_t handle);
+extern TLE75008_Status_t TLE75008_EnterIdle(TLE75008_Handle_t handle);
 
 /**
  * @brief Enter Sleep mode (lowest power)
@@ -153,7 +153,7 @@ TLE75008_Status_t TLE75008_EnterIdle(TLE75008_Handle_t handle);
  * @param handle Device handle
  * @return Status code
  */
-TLE75008_Status_t TLE75008_EnterSleep(TLE75008_Handle_t handle);
+extern TLE75008_Status_t TLE75008_EnterSleep(TLE75008_Handle_t handle);
 
 /**
  * @brief Enable or disable Active mode
@@ -162,7 +162,7 @@ TLE75008_Status_t TLE75008_EnterSleep(TLE75008_Handle_t handle);
  * @param active Enable / Disable
  * @return Status code
  */
-TLE75008_Status_t TLE75008_ActiveChip(TLE75008_Handle_t handle,TLE75008_ChipActive_t active);
+extern TLE75008_Status_t TLE75008_ActiveChip(TLE75008_Handle_t handle,TLE75008_ChipActive_t active);
 
 #ifdef __cplusplus
 }
