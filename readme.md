@@ -1,4 +1,6 @@
 
+[中文](./readme.zh.md)
+
 # TLE75008 Driver Library Documentation
 
 This library is a universal C driver for the Infineon TLE75008 8-channel high-side switch. It supports diagnosis, configuration, and control via SPI.
