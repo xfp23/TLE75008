@@ -242,7 +242,7 @@ TLE75008_Status_t TLE75008_OutputChx(TLE75008_Handle_t handle, TLE75008_Channel_
 
     reg_tx.bits.Cmd = 0x80;
 
-    if (handle->conf.spi_tx_rx((uint8_t *)&reg_tx, NULL, 2, 0) != 0)
+    if (spi_transmit(handle,(uint8_t *)&reg_tx.bytes,2) != TLE75008_OK)
     {
         return TLE75008_SPI_ERR;
     }
